@@ -2,13 +2,6 @@
 require 'test/unit'
 
 
-# A helper for testing Asterisk AGI scripts. It interfaces with the
-# AGI script in the same way as Asterisk would, and uses test/unit to
-# assert that the (send, expect) script it is given behaves as
-# specified. It is useful for regression testing and test driven
-# development. The AGI script does not have to be implemented in Ruby.
-
-
 class AsynchronousAsteriskTest < Test::Unit::TestCase
 
   def init(agi_script, args, test_script)

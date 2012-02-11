@@ -1,0 +1,26 @@
+
+* Introduction
+
+@test (pronounced attest) is a helper script for testing Asterisk AGI
+scripts. It interfaces with the AGI script in the same way as Asterisk
+would, and uses ruby's test/unit to assert that the (send, expect)
+script it is given behaves as specified. It is useful for regression
+testing and test driven development. 
+
+The AGI script does *not* have to be implemented in Ruby.
+
+* Example Test
+
+class ExampleTest < AsynchronousAsteriskTest
+  
+  def test_answer_and_hangup
+    test_script = 
+      [["\n", "ANSWER"],
+       ["200 result=0", "HANGUP"],
+      ]
+    init('./example.agi', [], test_script)
+    run_script
+  end
+
+end
+
